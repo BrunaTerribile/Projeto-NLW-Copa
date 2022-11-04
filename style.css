@@ -5,13 +5,15 @@
 body {
     background-color: #121214;
     background-image: url(./assets/bg.svg);
-    background-position-x: center;
-    background-position-y: -715px;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
 }
 
 #app {
     width: fit-content;
-    margin: 52px auto;
+    margin: auto;
+    padding-top: 52px;
 }
 
 header {
@@ -19,13 +21,10 @@ header {
     text-align: center;
 }
 
-img {
-    width: 50px;
-}
-
 #cards {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 32px;
 }
 
@@ -84,4 +83,38 @@ img {
     font-size: 36px;
     line-height: 125%;
     color: #E1E1E6;
+}
+
+.card h2, 
+.card ul li strong:hover,
+.card ul li img:hover {
+    transform: scale(1.1);
+}
+
+.card h2,
+.card ul li strong,
+.card ul li img {
+    transition: transform 0.3s;
+}
+
+.card {
+    animation: appear .7s
+}
+
+@keyframes appear {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 700px) {
+    #cards {
+        max-width: 670px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
